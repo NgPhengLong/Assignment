@@ -30,28 +30,31 @@ Partial Class frmDeleteRentalData
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(16, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(205, 25)
+        Me.Label1.Size = New System.Drawing.Size(259, 31)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Enter Transaction Id"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(17, 48)
-        Me.TextBox1.MaximumSize = New System.Drawing.Size(1000, 1000)
-        Me.TextBox1.MinimumSize = New System.Drawing.Size(100, 30)
+        Me.TextBox1.Location = New System.Drawing.Point(23, 59)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.MaximumSize = New System.Drawing.Size(1332, 1000)
+        Me.TextBox1.MinimumSize = New System.Drawing.Size(132, 30)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(200, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(265, 22)
         Me.TextBox1.TabIndex = 1
         '
         'frmDeleteRentalData
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(239, 101)
+        Me.ClientSize = New System.Drawing.Size(319, 124)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmDeleteRentalData"
         Me.Text = "frmDeleteRentalData"
         Me.ResumeLayout(False)

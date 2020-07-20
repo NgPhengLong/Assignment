@@ -73,6 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Change Password Method.designer.vb">
+      <DependentUpon>Change Password Method.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Change Password Method.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change Password.designer.vb">
+      <DependentUpon>Change Password.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Change Password.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddRentalData.Designer.vb">
       <DependentUpon>frmAddRentalData.vb</DependentUpon>
     </Compile>
@@ -97,6 +109,25 @@
     <Compile Include="frmEditRentalData.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Identity Select.designer.vb">
+      <DependentUpon>Identity Select.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Identity Select.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log In.designer.vb">
+      <DependentUpon>Log In.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Log In.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="message.vb" />
+    <Compile Include="Question.designer.vb">
+      <DependentUpon>Question.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Question.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="tblCarRenting.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +150,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="textdb.vb" />
+    <Compile Include="validation.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Change Password Method.resx">
+      <DependentUpon>Change Password Method.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change Password.resx">
+      <DependentUpon>Change Password.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddRentalData.resx">
       <DependentUpon>frmAddRentalData.vb</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +171,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditRentalData.resx">
       <DependentUpon>frmEditRentalData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identity Select.resx">
+      <DependentUpon>Identity Select.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log In.resx">
+      <DependentUpon>Log In.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Question.resx">
+      <DependentUpon>Question.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tblCarRenting.resx">
       <DependentUpon>tblCarRenting.vb</DependentUpon>
