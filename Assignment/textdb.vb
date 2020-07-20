@@ -34,6 +34,8 @@ Public Class textdb
     End Sub
 
     Private Sub textdb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Car_Renting_System_DatabaseDataSet.Member_Security_information' table. You can move, or remove it, as needed.
+        Me.Member_Security_informationTableAdapter.Fill(Me.Car_Renting_System_DatabaseDataSet.Member_Security_information)
         myConnection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""..\..\Car_Renting_System_Database.accdb"""
         myConnection.Open()
         adapter = New OleDbDataAdapter("SELECT * FROM Member_Security_information", myConnection)

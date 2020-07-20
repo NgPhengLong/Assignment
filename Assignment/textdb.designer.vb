@@ -32,8 +32,6 @@ Partial Class textdb
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Member_Security_informationBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.Member_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -45,13 +43,6 @@ Partial Class textdb
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Member_Security_informationBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.Member_Security_informationDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Member_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter()
-        Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -59,14 +50,24 @@ Partial Class textdb
         Me.MaskedTextBox3 = New System.Windows.Forms.MaskedTextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
+        Me.Member_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Member_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter()
+        Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.Member_Security_informationDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         MEMBER_IDLabel = New System.Windows.Forms.Label()
         PASSWORDLabel = New System.Windows.Forms.Label()
         RECOVER_QUESTIONLabel = New System.Windows.Forms.Label()
         RECOVER_ANSWERLabel = New System.Windows.Forms.Label()
         CType(Me.Member_Security_informationBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Member_Security_informationBindingNavigator.SuspendLayout()
-        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Member_Security_informationDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,7 +128,6 @@ Partial Class textdb
         'Member_Security_informationBindingNavigator
         '
         Me.Member_Security_informationBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.Member_Security_informationBindingNavigator.BindingSource = Me.Member_Security_informationBindingSource
         Me.Member_Security_informationBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.Member_Security_informationBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.Member_Security_informationBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -151,16 +151,6 @@ Partial Class textdb
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(29, 24)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'Member_Security_informationBindingSource
-        '
-        Me.Member_Security_informationBindingSource.DataMember = "Member_Security_information"
-        Me.Member_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
-        '
-        'Car_Renting_System_DatabaseDataSet
-        '
-        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
-        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -205,7 +195,6 @@ Partial Class textdb
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 27)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -246,69 +235,6 @@ Partial Class textdb
         Me.Member_Security_informationBindingNavigatorSaveItem.Name = "Member_Security_informationBindingNavigatorSaveItem"
         Me.Member_Security_informationBindingNavigatorSaveItem.Size = New System.Drawing.Size(29, 24)
         Me.Member_Security_informationBindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'Member_Security_informationDataGridView
-        '
-        Me.Member_Security_informationDataGridView.AllowUserToAddRows = False
-        Me.Member_Security_informationDataGridView.AllowUserToDeleteRows = False
-        Me.Member_Security_informationDataGridView.AutoGenerateColumns = False
-        Me.Member_Security_informationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Member_Security_informationDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.Member_Security_informationDataGridView.DataSource = Me.Member_Security_informationBindingSource
-        Me.Member_Security_informationDataGridView.Location = New System.Drawing.Point(461, 93)
-        Me.Member_Security_informationDataGridView.Name = "Member_Security_informationDataGridView"
-        Me.Member_Security_informationDataGridView.ReadOnly = True
-        Me.Member_Security_informationDataGridView.RowHeadersWidth = 51
-        Me.Member_Security_informationDataGridView.RowTemplate.Height = 24
-        Me.Member_Security_informationDataGridView.Size = New System.Drawing.Size(627, 220)
-        Me.Member_Security_informationDataGridView.TabIndex = 27
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "MEMBER_ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "MEMBER_ID"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 125
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "PASSWORD"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "PASSWORD"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 125
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "RECOVER_QUESTION"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "RECOVER_QUESTION"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 125
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "RECOVER_ANSWER"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "RECOVER_ANSWER"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'Member_Security_informationTableAdapter
-        '
-        Me.Member_Security_informationTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Member_Security_informationTableAdapter = Me.Member_Security_informationTableAdapter
-        Me.TableAdapterManager.Staff_Security_InformationTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'TextBox2
         '
@@ -365,11 +291,89 @@ Partial Class textdb
         Me.Button2.Text = "SEARCH"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Car_Renting_System_DatabaseDataSet
+        '
+        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
+        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Member_Security_informationBindingSource
+        '
+        Me.Member_Security_informationBindingSource.DataMember = "Member_Security_information"
+        Me.Member_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
+        'Member_Security_informationTableAdapter
+        '
+        Me.Member_Security_informationTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Member_Security_informationTableAdapter = Me.Member_Security_informationTableAdapter
+        Me.TableAdapterManager.Staff_Security_InformationTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Member_Security_informationDataGridView
+        '
+        Me.Member_Security_informationDataGridView.AllowUserToAddRows = False
+        Me.Member_Security_informationDataGridView.AllowUserToDeleteRows = False
+        Me.Member_Security_informationDataGridView.AutoGenerateColumns = False
+        Me.Member_Security_informationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Member_Security_informationDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
+        Me.Member_Security_informationDataGridView.DataSource = Me.Member_Security_informationBindingSource
+        Me.Member_Security_informationDataGridView.Location = New System.Drawing.Point(407, 86)
+        Me.Member_Security_informationDataGridView.Name = "Member_Security_informationDataGridView"
+        Me.Member_Security_informationDataGridView.ReadOnly = True
+        Me.Member_Security_informationDataGridView.RowHeadersWidth = 51
+        Me.Member_Security_informationDataGridView.RowTemplate.Height = 24
+        Me.Member_Security_informationDataGridView.Size = New System.Drawing.Size(630, 220)
+        Me.Member_Security_informationDataGridView.TabIndex = 36
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "MEMBER_ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "MEMBER_ID"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 125
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "PASSWORD"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "PASSWORD"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 125
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "RECOVER_QUESTION"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "RECOVER_QUESTION"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 125
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "RECOVER_ANSWER"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "RECOVER_ANSWER"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "DATE_MODIFIED"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "DATE_MODIFIED"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 125
+        '
         'textdb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1378, 450)
+        Me.Controls.Add(Me.Member_Security_informationDataGridView)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.MaskedTextBox3)
@@ -377,7 +381,6 @@ Partial Class textdb
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Member_Security_informationDataGridView)
         Me.Controls.Add(Me.Member_Security_informationBindingNavigator)
         Me.Controls.Add(MEMBER_IDLabel)
         Me.Controls.Add(PASSWORDLabel)
@@ -390,8 +393,8 @@ Partial Class textdb
         CType(Me.Member_Security_informationBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Member_Security_informationBindingNavigator.ResumeLayout(False)
         Me.Member_Security_informationBindingNavigator.PerformLayout()
-        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Member_Security_informationDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -399,10 +402,6 @@ Partial Class textdb
     End Sub
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnSave As Button
-    Friend WithEvents Car_Renting_System_DatabaseDataSet As Car_Renting_System_DatabaseDataSet
-    Friend WithEvents Member_Security_informationBindingSource As BindingSource
-    Friend WithEvents Member_Security_informationTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter
-    Friend WithEvents TableAdapterManager As Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Member_Security_informationBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -416,11 +415,6 @@ Partial Class textdb
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents Member_Security_informationBindingNavigatorSaveItem As ToolStripButton
-    Friend WithEvents Member_Security_informationDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
@@ -428,4 +422,14 @@ Partial Class textdb
     Friend WithEvents MaskedTextBox3 As MaskedTextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Car_Renting_System_DatabaseDataSet As Car_Renting_System_DatabaseDataSet
+    Friend WithEvents Member_Security_informationBindingSource As BindingSource
+    Friend WithEvents Member_Security_informationTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter
+    Friend WithEvents TableAdapterManager As Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Member_Security_informationDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
 End Class
