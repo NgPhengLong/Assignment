@@ -159,7 +159,7 @@ Partial Class Log_In
         'btnShowPass
         '
         Me.btnShowPass.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnShowPass.Image = Global.SECURITY_MODULE.My.Resources.Resources.hide
+        Me.btnShowPass.Image = Global.Assignment.My.Resources.Resources.hide
         Me.btnShowPass.Location = New System.Drawing.Point(304, 160)
         Me.btnShowPass.Name = "btnShowPass"
         Me.btnShowPass.Size = New System.Drawing.Size(50, 38)
