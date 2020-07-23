@@ -73,41 +73,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddRentalData.Designer.vb">
-      <DependentUpon>frmAddRentalData.vb</DependentUpon>
+    <Compile Include="frmCust_ControlPanel.Designer.vb">
+      <DependentUpon>frmCust_ControlPanel.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddRentalData.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDeleteRentalData.Designer.vb">
-      <DependentUpon>frmDeleteRentalData.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDeleteRentalData.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDeleteRentalData2.Designer.vb">
-      <DependentUpon>frmDeleteRentalData2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDeleteRentalData2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditRentalData.Designer.vb">
-      <DependentUpon>frmEditRentalData.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmEditRentalData.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="tblCarRenting.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="tblCarRenting.Designer.vb">
-      <DependentUpon>tblCarRenting.vb</DependentUpon>
+    <Compile Include="frmCust_ControlPanel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -121,20 +97,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmAddRentalData.resx">
-      <DependentUpon>frmAddRentalData.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDeleteRentalData.resx">
-      <DependentUpon>frmDeleteRentalData.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDeleteRentalData2.resx">
-      <DependentUpon>frmDeleteRentalData2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditRentalData.resx">
-      <DependentUpon>frmEditRentalData.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="tblCarRenting.resx">
-      <DependentUpon>tblCarRenting.vb</DependentUpon>
+    <EmbeddedResource Include="frmCust_ControlPanel.resx">
+      <DependentUpon>frmCust_ControlPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
