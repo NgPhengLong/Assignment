@@ -45,8 +45,6 @@ Public Class textdb
         myConnection.Close()
 
 
-
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -55,8 +53,29 @@ Public Class textdb
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         myConnection.Open()
-        adapter = New OleDbDataAdapter("SELECT * FROM Member_Security_information", myConnection)
+
+        Dim adapter As OleDbCommand
+        Dim reader As OleDbDataReader
+        Dim dt As New DataTable
+
+        adapter = New OleDbCommand("SELECT * FROM Member_Security_information WHERE [MEMBER_ID] = '" & MaskedTextBox3.Text & "'", myConnection)
+        reader = adapter.ExecuteReader
+        If (reader.HasRows) Then
+            dt.Load(reader)
+
+            TextBox1.Text = dt.Rows(0).Item(0).ToString()
+            TextBox5.Text = dt.Rows(0).Item(1).ToString()
+        Else
+            MessageBox.Show("nO DATA LAH")
+        End If
+        myConnection.Close()
 
 
+    End Sub
+
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+        For i = 0 To Member_Security_informationDataGridView.Rows.Count - 1
+            'Member_Security_informationDataGridView.Rows(i).Visible = 
+        Next
     End Sub
 End Class

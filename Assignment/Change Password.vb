@@ -104,4 +104,8 @@ Public Class Change_Password
 
         'cmd.ExecuteNonQuery()
     End Sub
+
+    Private Sub lblUserId_Click(sender As Object, e As EventArgs) Handles lblUserId.Click
+
+    End Sub
 End Class

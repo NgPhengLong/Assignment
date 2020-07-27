@@ -10,7 +10,6 @@ Public Class Identity_Select
         Me.Hide()
         Log_In.Show()
 
-
     End Sub
 
     Private Sub staffBtn_Click(sender As Object, e As EventArgs) Handles btnStaff.Click
@@ -21,8 +20,6 @@ Public Class Identity_Select
     End Sub
 
     'Go to Log In Form
-
-
     Public Sub Encryption(ByVal strOriMsg As String, ByVal intEncryptKey(,) As Integer, ByRef strEncryptedMsg As String)
         Dim intTtlRow As Integer = Math.Round(strOriMsg.Length / 2, 0)
         Dim objEncryptedMsgMatrix(,) As Object
@@ -102,30 +99,30 @@ Public Class Identity_Select
         strOrimsg = strOrimsg.Replace("~", "")
     End Sub
 
-    'example of using the encrypt and decrypt process
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim orimsg As String = ""
-        Dim encryptedMsg As String = ""
+    ''example of using the encrypt and decrypt process
+    'Private Sub Button1_Click(sender As Object, e As EventArgs)
+    '    Dim orimsg As String = ""
+    '    Dim encryptedMsg As String = ""
 
-        Dim encryptKey(,) As Integer = {
-            {2, 6},
-            {8, 15}
-        }
+    '    Dim encryptKey(,) As Integer = {
+    '        {2, 6},
+    '        {8, 15}
+    '    }
 
-        If (TextBox1.Text <> String.Empty) Then
+    '    If (TextBox1.Text <> String.Empty) Then
 
-            Encryption(TextBox1.Text, encryptKey, encryptedMsg)
+    '        Encryption(TextBox1.Text, encryptKey, encryptedMsg)
 
-            TextBox2.Text = encryptedMsg
+    '        TextBox2.Text = encryptedMsg
 
-            Decryption(encryptedMsg, encryptKey, orimsg)
+    '        Decryption(encryptedMsg, encryptKey, orimsg)
 
-            TextBox3.Text = orimsg
-        End If
+    '        TextBox3.Text = orimsg
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Private Sub Identity_Select_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'Private Sub Identity_Select_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
+    'End Sub
 End Class

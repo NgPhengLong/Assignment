@@ -60,6 +60,11 @@ Partial Class textdb
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
         MEMBER_IDLabel = New System.Windows.Forms.Label()
         PASSWORDLabel = New System.Windows.Forms.Label()
         RECOVER_QUESTIONLabel = New System.Windows.Forms.Label()
@@ -267,7 +272,7 @@ Partial Class textdb
         '
         'MaskedTextBox3
         '
-        Me.MaskedTextBox3.Location = New System.Drawing.Point(1192, 144)
+        Me.MaskedTextBox3.Location = New System.Drawing.Point(1183, 30)
         Me.MaskedTextBox3.Mask = "M######"
         Me.MaskedTextBox3.Name = "MaskedTextBox3"
         Me.MaskedTextBox3.Size = New System.Drawing.Size(100, 22)
@@ -284,7 +289,7 @@ Partial Class textdb
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(1192, 187)
+        Me.Button2.Location = New System.Drawing.Point(1183, 73)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 36
@@ -368,11 +373,51 @@ Partial Class textdb
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.Width = 125
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(1183, 118)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox1.TabIndex = 37
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(1183, 149)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox5.TabIndex = 38
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(1183, 177)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox6.TabIndex = 39
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(1183, 205)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(100, 22)
+        Me.TextBox7.TabIndex = 40
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(900, 58)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(137, 22)
+        Me.TextBox8.TabIndex = 41
+        '
         'textdb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1378, 450)
+        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.TextBox6)
+        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Member_Security_informationDataGridView)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -432,4 +477,9 @@ Partial Class textdb
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBox8 As TextBox
 End Class
