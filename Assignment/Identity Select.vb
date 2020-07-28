@@ -99,6 +99,10 @@ Public Class Identity_Select
         strOrimsg = strOrimsg.Replace("~", "")
     End Sub
 
+    Private Sub Identity_Select_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
     ''example of using the encrypt and decrypt process
     'Private Sub Button1_Click(sender As Object, e As EventArgs)
     '    Dim orimsg As String = ""

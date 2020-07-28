@@ -34,6 +34,15 @@ Partial Class Change_Password
         Me.lblIdentity = New System.Windows.Forms.Label()
         Me.lblUserId = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
+        Me.Staff_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter()
+        Me.Member_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter()
+        Me.Staff_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.Member_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnConfirm
@@ -120,7 +129,7 @@ Partial Class Change_Password
         'lblIdentity
         '
         Me.lblIdentity.AutoSize = True
-        Me.lblIdentity.Location = New System.Drawing.Point(432, 462)
+        Me.lblIdentity.Location = New System.Drawing.Point(432, 454)
         Me.lblIdentity.Name = "lblIdentity"
         Me.lblIdentity.Size = New System.Drawing.Size(51, 17)
         Me.lblIdentity.TabIndex = 10
@@ -136,11 +145,42 @@ Partial Class Change_Password
         Me.lblUserId.Text = "ID"
         Me.lblUserId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Car_Renting_System_DatabaseDataSet
+        '
+        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
+        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Staff_Security_informationTableAdapter
+        '
+        Me.Staff_Security_informationTableAdapter.ClearBeforeFill = True
+        '
+        'Member_Security_informationTableAdapter
+        '
+        Me.Member_Security_informationTableAdapter.ClearBeforeFill = True
+        '
+        'Staff_Security_informationBindingSource
+        '
+        Me.Staff_Security_informationBindingSource.DataMember = "Staff_Security_information"
+        Me.Staff_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.Member_Security_informationTableAdapter = Nothing
+        Me.TableAdapterManager.Staff_Security_informationTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Member_Security_informationBindingSource
+        '
+        Me.Member_Security_informationBindingSource.DataMember = "Member_Security_information"
+        Me.Member_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
         'Change_Password
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(482, 479)
+        Me.ClientSize = New System.Drawing.Size(491, 480)
         Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.lblUserId)
         Me.Controls.Add(Me.btnBack)
@@ -155,6 +195,9 @@ Partial Class Change_Password
         Me.Name = "Change_Password"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Change Password Form"
+        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -171,4 +214,10 @@ Partial Class Change_Password
     Friend WithEvents lblIdentity As Label
     Friend WithEvents lblUserId As Label
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Car_Renting_System_DatabaseDataSet As Car_Renting_System_DatabaseDataSet
+    Friend WithEvents Staff_Security_informationBindingSource As BindingSource
+    Friend WithEvents Staff_Security_informationTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter
+    Friend WithEvents TableAdapterManager As Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Member_Security_informationTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter
+    Friend WithEvents Member_Security_informationBindingSource As BindingSource
 End Class

@@ -1380,7 +1380,7 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT STAFF_ID, PASSWORD, RECOVER_QUESTION, RECOVER_ANSWER, PRIVILEGE FROM dbo.S"& _ 
@@ -1406,6 +1406,20 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
             Me._commandCollection(3).CommandText = "SELECT * FROM dbo.Staff_Security_information WHERE STAFF_ID = @STAFFID"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STAFFID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "STAFF_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT PASSWORD FROM dbo.Staff_Security_information WHERE STAFF_ID = @STAFFID AND"& _ 
+                " RECOVER_ANSWER = @ANSWER"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STAFFID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "STAFF_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ANSWER", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "RECOVER_ANSWER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE [dbo].[Staff_Security_information] SET [PASSWORD] = @PASSWORD WHERE STAFF_"& _ 
+                "ID = @STAFFID"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PASSWORD", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STAFFID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "STAFF_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1558,6 +1572,50 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
                 Throw New Global.System.ArgumentNullException("STAFFID")
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(STAFFID,String)
+            End If
+            Dim dataTable As Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable = New Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy3(ByVal dataTable As Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable, ByVal STAFFID As String, ByVal ANSWER As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (STAFFID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("STAFFID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(STAFFID,String)
+            End If
+            If (ANSWER Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ANSWER")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ANSWER,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByIDandAnswer(ByVal STAFFID As String, ByVal ANSWER As String) As Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (STAFFID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("STAFFID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(STAFFID,String)
+            End If
+            If (ANSWER Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ANSWER")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ANSWER,String)
             End If
             Dim dataTable As Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable = New Car_Renting_System_DatabaseDataSet.Staff_Security_informationDataTable()
             Me.Adapter.Fill(dataTable)
@@ -1763,6 +1821,38 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
         Public Overloads Overridable Function Update(ByVal PASSWORD As String, ByVal RECOVER_QUESTION As String, ByVal RECOVER_ANSWER As String, ByVal PRIVILEGE As Global.System.Nullable(Of Integer), ByVal Original_STAFF_ID As String, ByVal Original_PASSWORD As String, ByVal Original_RECOVER_QUESTION As String, ByVal Original_RECOVER_ANSWER As String, ByVal Original_PRIVILEGE As Global.System.Nullable(Of Integer)) As Integer
             Return Me.Update(Original_STAFF_ID, PASSWORD, RECOVER_QUESTION, RECOVER_ANSWER, PRIVILEGE, Original_STAFF_ID, Original_PASSWORD, Original_RECOVER_QUESTION, Original_RECOVER_ANSWER, Original_PRIVILEGE)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQuery(ByVal PASSWORD As String, ByVal STAFFID As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
+            If (PASSWORD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("PASSWORD")
+            Else
+                command.Parameters(0).Value = CType(PASSWORD,String)
+            End If
+            If (STAFFID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("STAFFID")
+            Else
+                command.Parameters(1).Value = CType(STAFFID,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
     End Class
     
     '''<summary>
@@ -1956,7 +2046,7 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT MEMBER_ID, PASSWORD, RECOVER_QUESTION, RECOVER_ANSWER, DATE_MODIFIED FROM "& _ 
@@ -1975,6 +2065,20 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
             Me._commandCollection(2).CommandText = "SELECT * FROM dbo.Member_Security_information WHERE MEMBER_ID = @MEMBERID"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEMBERID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "MEMBER_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT PASSWORD FROM dbo.Member_Security_information WHERE MEMBER_ID = @MEMBERID "& _ 
+                "AND RECOVER_ANSWER = @ANSWER"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEMBERID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "MEMBER_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ANSWER", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "RECOVER_ANSWER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "UPDATE [dbo].[Member_Security_information] SET [PASSWORD] = @PASSWORD WHERE MEMBE"& _ 
+                "R_ID = @MEMBERID"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PASSWORD", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEMBERID", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "MEMBER_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2073,6 +2177,50 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
                 Throw New Global.System.ArgumentNullException("MEMBERID")
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(MEMBERID,String)
+            End If
+            Dim dataTable As Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable = New Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy2(ByVal dataTable As Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable, ByVal MEMBERID As String, ByVal ANSWER As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (MEMBERID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("MEMBERID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(MEMBERID,String)
+            End If
+            If (ANSWER Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ANSWER")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ANSWER,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByIDandAnswer(ByVal MEMBERID As String, ByVal ANSWER As String) As Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (MEMBERID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("MEMBERID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(MEMBERID,String)
+            End If
+            If (ANSWER Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ANSWER")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ANSWER,String)
             End If
             Dim dataTable As Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable = New Car_Renting_System_DatabaseDataSet.Member_Security_informationDataTable()
             Me.Adapter.Fill(dataTable)
@@ -2273,6 +2421,38 @@ Namespace Car_Renting_System_DatabaseDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update(ByVal PASSWORD As String, ByVal RECOVER_QUESTION As String, ByVal RECOVER_ANSWER As String, ByVal DATE_MODIFIED As String, ByVal Original_MEMBER_ID As String, ByVal Original_PASSWORD As String, ByVal Original_RECOVER_QUESTION As String, ByVal Original_RECOVER_ANSWER As String, ByVal Original_DATE_MODIFIED As String) As Integer
             Return Me.Update(Original_MEMBER_ID, PASSWORD, RECOVER_QUESTION, RECOVER_ANSWER, DATE_MODIFIED, Original_MEMBER_ID, Original_PASSWORD, Original_RECOVER_QUESTION, Original_RECOVER_ANSWER, Original_DATE_MODIFIED)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQuery(ByVal PASSWORD As String, ByVal MEMBERID As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            If (PASSWORD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("PASSWORD")
+            Else
+                command.Parameters(0).Value = CType(PASSWORD,String)
+            End If
+            If (MEMBERID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("MEMBERID")
+            Else
+                command.Parameters(1).Value = CType(MEMBERID,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     

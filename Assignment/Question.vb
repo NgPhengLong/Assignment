@@ -21,11 +21,11 @@ Public Class Question
 
     'go to change password form
     Private Sub btnVerify_Click(sender As Object, e As EventArgs) Handles btnVerify.Click
-        Dim cmd As SqlCommand
-        Dim reader As SqlDataReader
-        Dim dtStaff As New DataTable
+        Dim intCount As Integer
+        Dim information As New DataTable
 
         Dim strAnswer As String = String.Empty
+        Dim strPassword As String = String.Empty
         Dim intEncryptKey(,) As Integer = {
             {2, 6},
             {8, 15}
@@ -33,51 +33,50 @@ Public Class Question
 
         If (txtAnswer.Text <> String.Empty) Then
 
-            'Identity_Select.Encryption(txtAnswer.Text, encryptKey, answer)
+            'Identity_Select.Encryption(txtAnswer.Text, encryptKey, strAnswer)
             strAnswer = txtAnswer.Text
 
             If LCase(lblIdentity.Text) = "staff" Then
                 'staff database
-                Identity_Select.connection.Open()
 
-                cmd = New SqlCommand("SELECT Password FROM Staff WHERE (Staff_Id = '" & lblUserId.Text & "' and Answer = '" & strAnswer & "')", Identity_Select.connection)
-                reader = cmd.ExecuteReader()
+                intCount = Staff_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer).Count
 
                 'check correct answer or not
-                If (reader.HasRows) Then
-                    dtStaff.Load(reader)
+                If (intCount > 0) Then
+
+                    information = Staff_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer)
+
+
+                    Identity_Select.Decryption(information.Rows(0).Item(0), intEncryptKey, strPassword)
 
                     'open change password form
-                    Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, dtStaff.Rows(0).Item(0))
+                    Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, strPassword)
                     Change_Password.Show()
                     Me.Close()
                 Else
                     MessageBox.Show("wrong answer input")
                 End If
-
-                Identity_Select.connection.Close()
 
             ElseIf LCase(lblIdentity.Text) = "member" Then
                 'customer database
 
-                Identity_Select.connection.Open()
-
-                cmd = New SqlCommand("SELECT Password FROM Customer WHERE (Cust_Id = '" & lblUserId.Text & "' and Answer = '" & strAnswer & "')", Identity_Select.connection)
-                reader = cmd.ExecuteReader()
+                intCount = Member_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer).Count
 
                 'check correct answer or not
-                If (reader.HasRows) Then
-                    dtStaff.Load(reader)
+                If (intCount > 0) Then
+
+                    information = Member_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer)
+
+                    Identity_Select.Decryption(information.Rows(0).Item(0), intEncryptKey, strPassword)
 
                     'open change password form
-                    Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, dtStaff.Rows(0).Item(0))
+                    Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, strPassword)
                     Change_Password.Show()
                     Me.Close()
                 Else
                     MessageBox.Show("wrong answer input")
                 End If
 
-                Identity_Select.connection.Close()
             End If
 
         Else
@@ -88,31 +87,36 @@ Public Class Question
     End Sub
 
     Private Sub Question_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim cmd As SqlCommand
-        Dim reader As SqlDataReader
-        Dim dt As New DataTable
+        Dim intCount As Integer
+        Dim information As New DataTable
 
         MessageBox.Show(lblUserId.Text)
 
-        Identity_Select.connection.Open()
         If LCase(lblIdentity.Text) = "staff" Then
-            cmd = New SqlCommand("SELECT Question FROM Staff WHERE (Staff_Id = '" & lblUserId.Text & "')", Identity_Select.connection)
-            reader = cmd.ExecuteReader()
-            If (reader.HasRows) Then
-                dt.Load(reader)
-                lblQuestion.Text = dt.Rows(0).Item(0).ToString
+
+            intCount = Staff_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Count
+
+            If (intCount > 0) Then
+                lblQuestion.Text = Staff_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Rows(0).Item(2).ToString
             End If
 
         ElseIf LCase(lblIdentity.Text) = "member" Then
-            cmd = New SqlCommand("SELECT Question FROM Customer WHERE (Cust_Id = '" & lblUserId.Text & "')", Identity_Select.connection)
-            reader = cmd.ExecuteReader()
-            If (reader.HasRows) Then
-                dt.Load(reader)
-                lblQuestion.Text = dt.Rows(0).Item(0).ToString
+            intCount = Member_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Count
+
+            If (intCount > 0) Then
+
+                lblQuestion.Text = Staff_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Rows(0).Item(2).ToString
+
             End If
         End If
 
-        Identity_Select.connection.Close()
+
+    End Sub
+
+    Private Sub Staff_Security_informationBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.Staff_Security_informationBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.Car_Renting_System_DatabaseDataSet)
 
     End Sub
 End Class

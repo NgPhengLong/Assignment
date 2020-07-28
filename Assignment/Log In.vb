@@ -86,7 +86,7 @@ Public Class Log_In
         Dim cmd As SqlCommand
         Dim reader As SqlDataReader
 
-        Dim strUserID As String = String.Empty
+        Dim strUserID As String = txtId.Text
         Dim strPassword As String = String.Empty
         Dim intEncryptKey(,) As Integer = {
             {2, 6},
@@ -114,10 +114,9 @@ Public Class Log_In
                             'temp
                             MessageBox.Show("(STAFF) go staff register form with user authorization")
 
-
-                            'staff register form open
+                            registertesting.Show()
                             lblAlertMsg.Visible = False
-                            'Me.Close()
+                            Me.Close()
                         Else
                             MessageBox.Show("Invalid ID or Password or staff previleges are not 2" & vbNewLine & "Please type again")
                         End If
@@ -127,9 +126,9 @@ Public Class Log_In
                             'temp
                             MessageBox.Show("(STAFF) go staff register form with system password")
 
-                            'staff register form open
+                            registertesting.Show()
                             lblAlertMsg.Visible = False
-                            'Me.Close()
+                            Me.Close()
                         Else
                             MessageBox.Show("Invalid ID or Password" & vbNewLine & "Please type again")
                         End If

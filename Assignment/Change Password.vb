@@ -29,7 +29,7 @@ Public Class Change_Password
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
         Dim Log_In As New Log_In(lblIdentity.Text)
-        Dim cmd As SqlCommand
+        Dim intCount As Integer
         Dim reader As SqlDataReader
 
         Dim strOriPassword As String = String.Empty
@@ -42,42 +42,32 @@ Public Class Change_Password
         'check have blank space not fill in or not
         If txtOriPass.Text <> String.Empty And txtNewPass.Text <> String.Empty And txtReType.Text <> String.Empty Then
 
-            'Identity_Select.Encryption(txtOriPass.Text, encryptKey, password)
-            strOriPassword = txtOriPass.Text
-
-            Identity_Select.connection.Open()
+            Identity_Select.Encryption(txtOriPass.Text, intEncryptKey, strOriPassword)
 
             'Check identity and open what database to verify original password
             If LCase(lblIdentity.Text) = "staff" Then
-                cmd = New SqlCommand("SELECT * FROM Staff WHERE (Staff_Id = '" & lblUserId.Text & "' and Password = '" & strOriPassword & "')", Identity_Select.connection)
+                intCount = Staff_Security_informationTableAdapter.GetDataByIDandPASSWORD(lblUserId.Text, strOriPassword).Count
             ElseIf LCase(lblIdentity.Text) = "member" Then
-                cmd = New SqlCommand("SELECT * FROM Customer WHERE (Cust_Id = '" & lblUserId.Text & "' and Password = '" & strOriPassword & "')", Identity_Select.connection)
+                intCount = Member_Security_informationTableAdapter.GetDataByIDPASS(lblUserId.Text, strOriPassword).Count
             End If
 
             'check the original password are correct or not
-            If (cmd.ExecuteReader.HasRows) Then
-                Identity_Select.connection.Close()
-
-
-                Identity_Select.connection.Open()
+            If (intCount > 0) Then
 
                 'check the new password and retype password are match or not
                 If txtNewPass.Text = txtReType.Text Then
 
                     'Identity_Select.Encryption(txtOriPass.Text, encryptKey, password)
-                    strNewPassword = txtNewPass.Text
+                    Identity_Select.Encryption(txtNewPass.Text, intEncryptKey, strNewPassword)
 
                     'Check identity and open what database to update
                     If LCase(lblIdentity.Text) = "staff" Then
 
-                        cmd = New SqlCommand("UPDATE Staff SET Password = '" & strNewPassword & "' WHERE Staff_Id = '" & lblUserId.Text & "'", Identity_Select.connection)
-
-                        cmd.ExecuteNonQuery()
+                        Staff_Security_informationTableAdapter.UpdateQuery(strNewPassword, lblUserId.Text)
 
                     ElseIf LCase(lblIdentity.Text) = "member" Then
-                        cmd = New SqlCommand("UPDATE Customer SET Password = '" & strNewPassword & "' WHERE Cust_Id = '" & lblUserId.Text & "'", Identity_Select.connection)
 
-                        cmd.ExecuteNonQuery()
+                        Member_Security_informationTableAdapter.UpdateQuery(strNewPassword, lblUserId.Text)
 
                     End If
 
@@ -93,19 +83,16 @@ Public Class Change_Password
             Else
                 MessageBox.Show("Original Password is incorrect")
             End If
-            Identity_Select.connection.Close()
-
         Else
             MessageBox.Show("All the blank space must be fill up")
         End If
 
-
-        'cmd = New SqlCommand("UPDATE Staff SET Id = 2134 WHERE Id = 'feng'", connection)
-
-        'cmd.ExecuteNonQuery()
     End Sub
 
-    Private Sub lblUserId_Click(sender As Object, e As EventArgs) Handles lblUserId.Click
+    Private Sub Staff_Security_informationBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.Staff_Security_informationBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.Car_Renting_System_DatabaseDataSet)
 
     End Sub
 End Class
