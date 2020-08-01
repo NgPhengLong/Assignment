@@ -47,7 +47,7 @@ Partial Class Change_Password
         '
         'btnConfirm
         '
-        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
         Me.btnConfirm.Location = New System.Drawing.Point(97, 385)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(282, 48)
@@ -134,10 +134,11 @@ Partial Class Change_Password
         Me.lblIdentity.Size = New System.Drawing.Size(51, 17)
         Me.lblIdentity.TabIndex = 10
         Me.lblIdentity.Text = "Label3"
+        Me.lblIdentity.Visible = False
         '
         'lblUserId
         '
-        Me.lblUserId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserId.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
         Me.lblUserId.Location = New System.Drawing.Point(237, 0)
         Me.lblUserId.Name = "lblUserId"
         Me.lblUserId.Size = New System.Drawing.Size(246, 38)
@@ -170,6 +171,7 @@ Partial Class Change_Password
         Me.TableAdapterManager.Member_Security_informationTableAdapter = Nothing
         Me.TableAdapterManager.Staff_Security_informationTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.USER_VISITTableAdapter = Nothing
         '
         'Member_Security_informationBindingSource
         '
@@ -180,6 +182,7 @@ Partial Class Change_Password
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(491, 480)
         Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.lblUserId)

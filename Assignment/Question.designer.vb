@@ -30,15 +30,15 @@ Partial Class Question
         Me.lblUserId = New System.Windows.Forms.Label()
         Me.lblIdentity = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
-        Me.Staff_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Staff_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter()
-        Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
+        Me.Staff_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Staff_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter()
+        Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.Member_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Member_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter()
         CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,10 +48,10 @@ Partial Class Question
         '
         'txtAnswer
         '
-        Me.txtAnswer.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAnswer.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAnswer.Location = New System.Drawing.Point(12, 172)
         Me.txtAnswer.Name = "txtAnswer"
-        Me.txtAnswer.Size = New System.Drawing.Size(428, 34)
+        Me.txtAnswer.Size = New System.Drawing.Size(428, 41)
         Me.txtAnswer.TabIndex = 1
         Me.ToolTip1.SetToolTip(Me.txtAnswer, "Please Insert your answer")
         '
@@ -78,7 +78,7 @@ Partial Class Question
         '
         'btnVerify
         '
-        Me.btnVerify.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerify.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
         Me.btnVerify.Location = New System.Drawing.Point(134, 226)
         Me.btnVerify.Name = "btnVerify"
         Me.btnVerify.Size = New System.Drawing.Size(192, 53)
@@ -106,27 +106,7 @@ Partial Class Question
         Me.lblIdentity.Size = New System.Drawing.Size(51, 17)
         Me.lblIdentity.TabIndex = 6
         Me.lblIdentity.Text = "Label3"
-        '
-        'Car_Renting_System_DatabaseDataSet
-        '
-        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
-        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Staff_Security_informationBindingSource
-        '
-        Me.Staff_Security_informationBindingSource.DataMember = "Staff_Security_information"
-        Me.Staff_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
-        '
-        'Staff_Security_informationTableAdapter
-        '
-        Me.Staff_Security_informationTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Member_Security_informationTableAdapter = Nothing
-        Me.TableAdapterManager.Staff_Security_informationTableAdapter = Me.Staff_Security_informationTableAdapter
-        Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.lblIdentity.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -168,6 +148,28 @@ Partial Class Question
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.Width = 125
         '
+        'Car_Renting_System_DatabaseDataSet
+        '
+        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
+        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Staff_Security_informationBindingSource
+        '
+        Me.Staff_Security_informationBindingSource.DataMember = "Staff_Security_information"
+        Me.Staff_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
+        'Staff_Security_informationTableAdapter
+        '
+        Me.Staff_Security_informationTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Member_Security_informationTableAdapter = Nothing
+        Me.TableAdapterManager.Staff_Security_informationTableAdapter = Me.Staff_Security_informationTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.USER_VISITTableAdapter = Nothing
+        '
         'Member_Security_informationBindingSource
         '
         Me.Member_Security_informationBindingSource.DataMember = "Member_Security_information"
@@ -181,6 +183,7 @@ Partial Class Question
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(456, 294)
         Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.lblUserId)

@@ -16,8 +16,10 @@ Public Class Log_In
         Me.USER_VISITTableAdapter.Fill(Me.Car_Renting_System_DatabaseDataSet.USER_VISIT)
         btnNewUser.Text = "NEW " & lblIdentity.Text
         lblUserId.Text = UCase(lblIdentity.Text) & " ID"
-        'ToolTip1.SetToolTip(btnNewUser, "Register as new " & LCase(lblIdentity.Text))
-        'Tooltip1.SetToolTip(txtId, "Please insert your " & LCase(lblIdentity.Text) & " ID")
+
+        ToolTip1.SetToolTip(txtId, "Please input your " & lblIdentity.Text & " ID")
+
+
     End Sub
 
     'show password
@@ -80,6 +82,7 @@ Public Class Log_In
 
         Else
             MessageBox.Show(UCase(lblIdentity.Text) & " ID are required")
+            txtId.Focus()
         End If
     End Sub
 
@@ -87,6 +90,7 @@ Public Class Log_In
 
         Dim cmd As SqlCommand
         Dim reader As SqlDataReader
+        Dim uniqueID As Integer
 
         Dim strUserID As String = txtId.Text
         Dim strPassword As String = String.Empty
@@ -94,6 +98,12 @@ Public Class Log_In
             {2, 6},
             {8, 15}
         }
+
+        Try
+            uniqueID = USER_VISITTableAdapter.getUniqueID()
+        Catch ex As Exception
+            uniqueID = 0
+        End Try
 
         'check identity
         If (txtId.Text <> String.Empty) And (txtPass.Text <> String.Empty) Then
@@ -115,7 +125,8 @@ Public Class Log_In
                         If (Staff_Security_informationTableAdapter.GetDataByIdPassPrivilege(strUserID, strPassword, 2).Count > 0) Then
                             'temp
                             MessageBox.Show("(STAFF) go staff register form with user authorization")
-                            USER_VISITTableAdapter.Insert(txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
+
+                            USER_VISITTableAdapter.Insert(uniqueID + 1, txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
 
                             registertesting.Show()
                             lblAlertMsg.Visible = False
@@ -141,7 +152,7 @@ Public Class Log_In
                     If (Staff_Security_informationTableAdapter.GetDataByIDandPASSWORD(strUserID, strPassword).Count > 0) Then
                         'temp
                         MessageBox.Show("(STAFF) go renting panel with user authorization")
-                        USER_VISITTableAdapter.Insert(txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
+                        USER_VISITTableAdapter.Insert(uniqueID + 1, txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
 
                         'log in
                         'renting control panel  open (that operate by staff)
@@ -161,16 +172,21 @@ Public Class Log_In
                     'temp
                     MessageBox.Show("(MEMBER) go renting panel with user authorization")
 
-                    USER_VISITTableAdapter.Insert(txtId.Text, "MEMBER", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
+                    USER_VISITTableAdapter.Insert(uniqueID + 1, txtId.Text, "MEMBER", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
                     'log in
                     'control panel for renting open (that operate by customer)
                     'Me.Close()
                 Else
                     MessageBox.Show("Invalid ID or Password" & vbNewLine & "Please type again")
+
                 End If
 
             End If
 
+            txtId.Focus()
+            txtId.SelectAll()
+            txtPass.Focus()
+            txtPass.SelectAll()
         Else
             MessageBox.Show("ID and password are required")
         End If

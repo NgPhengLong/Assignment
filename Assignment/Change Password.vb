@@ -78,10 +78,14 @@ Public Class Change_Password
 
                 Else
                     MessageBox.Show("New password are not match with re-type password")
+                    txtReType.Focus()
+                    txtReType.SelectAll()
                 End If
 
             Else
                 MessageBox.Show("Original Password is incorrect")
+                txtOriPass.Focus()
+                txtOriPass.SelectAll()
             End If
         Else
             MessageBox.Show("All the blank space must be fill up")

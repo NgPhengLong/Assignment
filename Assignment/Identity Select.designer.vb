@@ -54,6 +54,7 @@ Partial Class Identity_Select
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(350, 350)
         Me.Controls.Add(Me.btnStaff)
         Me.Controls.Add(Me.btnMember)

@@ -35,17 +35,18 @@ Partial Class Log_In
         Me.btnShowPass = New System.Windows.Forms.Button()
         Me.lblIdentity = New System.Windows.Forms.Label()
         Me.lblAlertMsg = New System.Windows.Forms.Label()
-        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
         Me.Member_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Car_Renting_System_DatabaseDataSet = New Assignment.Car_Renting_System_DatabaseDataSet()
         Me.Member_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Member_Security_informationTableAdapter()
         Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.Staff_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter()
         Me.Staff_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.USER_VISITBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.USER_VISITTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.USER_VISITTableAdapter()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.USER_VISITBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,6 +64,7 @@ Partial Class Log_In
         Me.btnBack.Size = New System.Drawing.Size(108, 36)
         Me.btnBack.TabIndex = 2
         Me.btnBack.Text = "BACK"
+        Me.ToolTip1.SetToolTip(Me.btnBack, "Back")
         Me.btnBack.UseVisualStyleBackColor = False
         '
         'btnNewUser
@@ -77,6 +79,7 @@ Partial Class Log_In
         Me.btnNewUser.Size = New System.Drawing.Size(225, 36)
         Me.btnNewUser.TabIndex = 3
         Me.btnNewUser.Text = "NEW USER"
+        Me.ToolTip1.SetToolTip(Me.btnNewUser, "Register")
         Me.btnNewUser.UseVisualStyleBackColor = False
         '
         'txtPass
@@ -87,6 +90,7 @@ Partial Class Log_In
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtPass.Size = New System.Drawing.Size(282, 38)
         Me.txtPass.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.txtPass, "Please input your password")
         '
         'lblUserId
         '
@@ -122,13 +126,14 @@ Partial Class Log_In
         Me.btnLogIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue
         Me.btnLogIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue
         Me.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogIn.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
         Me.btnLogIn.Location = New System.Drawing.Point(158, 246)
         Me.btnLogIn.Name = "btnLogIn"
         Me.btnLogIn.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.btnLogIn.Size = New System.Drawing.Size(140, 40)
         Me.btnLogIn.TabIndex = 6
         Me.btnLogIn.Text = "LOG IN"
+        Me.ToolTip1.SetToolTip(Me.btnLogIn, "Log In")
         Me.btnLogIn.UseVisualStyleBackColor = False
         '
         'btnForgetPass
@@ -144,6 +149,7 @@ Partial Class Log_In
         Me.btnForgetPass.Size = New System.Drawing.Size(151, 26)
         Me.btnForgetPass.TabIndex = 7
         Me.btnForgetPass.Text = "Forget Password?"
+        Me.ToolTip1.SetToolTip(Me.btnForgetPass, "Forget Password")
         Me.btnForgetPass.UseVisualStyleBackColor = False
         '
         'GroupBox1
@@ -169,6 +175,7 @@ Partial Class Log_In
         Me.btnShowPass.Name = "btnShowPass"
         Me.btnShowPass.Size = New System.Drawing.Size(50, 38)
         Me.btnShowPass.TabIndex = 9
+        Me.ToolTip1.SetToolTip(Me.btnShowPass, "Show Password")
         Me.btnShowPass.UseVisualStyleBackColor = True
         '
         'lblIdentity
@@ -183,6 +190,7 @@ Partial Class Log_In
         '
         'lblAlertMsg
         '
+        Me.lblAlertMsg.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblAlertMsg.ForeColor = System.Drawing.Color.Red
         Me.lblAlertMsg.Location = New System.Drawing.Point(60, 70)
         Me.lblAlertMsg.Name = "lblAlertMsg"
@@ -192,15 +200,15 @@ Partial Class Log_In
         Me.lblAlertMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblAlertMsg.Visible = False
         '
-        'Car_Renting_System_DatabaseDataSet
-        '
-        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
-        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Member_Security_informationBindingSource
         '
         Me.Member_Security_informationBindingSource.DataMember = "Member_Security_information"
         Me.Member_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
+        'Car_Renting_System_DatabaseDataSet
+        '
+        Me.Car_Renting_System_DatabaseDataSet.DataSetName = "Car_Renting_System_DatabaseDataSet"
+        Me.Car_Renting_System_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Member_Security_informationTableAdapter
         '
@@ -237,8 +245,9 @@ Partial Class Log_In
         Me.AcceptButton = Me.btnLogIn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.CancelButton = Me.btnBack
-        Me.ClientSize = New System.Drawing.Size(483, 394)
+        Me.ClientSize = New System.Drawing.Size(481, 400)
         Me.Controls.Add(Me.lblAlertMsg)
         Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.btnNewUser)
@@ -250,8 +259,8 @@ Partial Class Log_In
         Me.Text = "Log In Form"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.USER_VISITBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -278,4 +287,5 @@ Partial Class Log_In
     Friend WithEvents Staff_Security_informationBindingSource As BindingSource
     Friend WithEvents USER_VISITBindingSource As BindingSource
     Friend WithEvents USER_VISITTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.USER_VISITTableAdapter
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

@@ -44,7 +44,7 @@ Partial Class Change_Password_Method
         '
         'btnQuestion
         '
-        Me.btnQuestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQuestion.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
         Me.btnQuestion.Location = New System.Drawing.Point(108, 130)
         Me.btnQuestion.Name = "btnQuestion"
         Me.btnQuestion.Size = New System.Drawing.Size(175, 56)
@@ -55,12 +55,12 @@ Partial Class Change_Password_Method
         '
         'btnCurrentPass
         '
-        Me.btnCurrentPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCurrentPass.Location = New System.Drawing.Point(108, 221)
+        Me.btnCurrentPass.Font = New System.Drawing.Font("Arial Black", 13.8!, System.Drawing.FontStyle.Bold)
+        Me.btnCurrentPass.Location = New System.Drawing.Point(108, 223)
         Me.btnCurrentPass.Name = "btnCurrentPass"
-        Me.btnCurrentPass.Size = New System.Drawing.Size(175, 66)
+        Me.btnCurrentPass.Size = New System.Drawing.Size(175, 56)
         Me.btnCurrentPass.TabIndex = 2
-        Me.btnCurrentPass.Text = "CURRENT PASSWORD"
+        Me.btnCurrentPass.Text = "PASSWORD"
         Me.ToolTip1.SetToolTip(Me.btnCurrentPass, "Change password by current password")
         Me.btnCurrentPass.UseVisualStyleBackColor = True
         '
@@ -83,6 +83,7 @@ Partial Class Change_Password_Method
         Me.lblIdentity.Size = New System.Drawing.Size(51, 17)
         Me.lblIdentity.TabIndex = 5
         Me.lblIdentity.Text = "Label2"
+        Me.lblIdentity.Visible = False
         '
         'lblUserId
         '
@@ -92,11 +93,13 @@ Partial Class Change_Password_Method
         Me.lblUserId.Size = New System.Drawing.Size(51, 17)
         Me.lblUserId.TabIndex = 6
         Me.lblUserId.Text = "Label3"
+        Me.lblUserId.Visible = False
         '
         'Change_Password_Method
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(374, 328)
         Me.Controls.Add(Me.lblUserId)
         Me.Controls.Add(Me.lblIdentity)
