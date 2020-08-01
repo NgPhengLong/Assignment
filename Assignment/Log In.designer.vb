@@ -41,10 +41,13 @@ Partial Class Log_In
         Me.TableAdapterManager = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.Staff_Security_informationTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter()
         Me.Staff_Security_informationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.USER_VISITBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.USER_VISITTableAdapter = New Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.USER_VISITTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.USER_VISITBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -209,6 +212,7 @@ Partial Class Log_In
         Me.TableAdapterManager.Member_Security_informationTableAdapter = Me.Member_Security_informationTableAdapter
         Me.TableAdapterManager.Staff_Security_informationTableAdapter = Me.Staff_Security_informationTableAdapter
         Me.TableAdapterManager.UpdateOrder = Assignment.Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.USER_VISITTableAdapter = Nothing
         '
         'Staff_Security_informationTableAdapter
         '
@@ -219,13 +223,22 @@ Partial Class Log_In
         Me.Staff_Security_informationBindingSource.DataMember = "Staff_Security_information"
         Me.Staff_Security_informationBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
         '
+        'USER_VISITBindingSource
+        '
+        Me.USER_VISITBindingSource.DataMember = "USER_VISIT"
+        Me.USER_VISITBindingSource.DataSource = Me.Car_Renting_System_DatabaseDataSet
+        '
+        'USER_VISITTableAdapter
+        '
+        Me.USER_VISITTableAdapter.ClearBeforeFill = True
+        '
         'Log_In
         '
         Me.AcceptButton = Me.btnLogIn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnBack
-        Me.ClientSize = New System.Drawing.Size(500, 723)
+        Me.ClientSize = New System.Drawing.Size(483, 394)
         Me.Controls.Add(Me.lblAlertMsg)
         Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.btnNewUser)
@@ -240,6 +253,7 @@ Partial Class Log_In
         CType(Me.Car_Renting_System_DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Member_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Staff_Security_informationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.USER_VISITBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -262,4 +276,6 @@ Partial Class Log_In
     Friend WithEvents TableAdapterManager As Car_Renting_System_DatabaseDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Staff_Security_informationTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.Staff_Security_informationTableAdapter
     Friend WithEvents Staff_Security_informationBindingSource As BindingSource
+    Friend WithEvents USER_VISITBindingSource As BindingSource
+    Friend WithEvents USER_VISITTableAdapter As Car_Renting_System_DatabaseDataSetTableAdapters.USER_VISITTableAdapter
 End Class

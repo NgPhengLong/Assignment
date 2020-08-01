@@ -33,8 +33,7 @@ Public Class Question
 
         If (txtAnswer.Text <> String.Empty) Then
 
-            'Identity_Select.Encryption(txtAnswer.Text, encryptKey, strAnswer)
-            strAnswer = txtAnswer.Text
+            Identity_Select.Encryption(txtAnswer.Text, intEncryptKey, strAnswer)
 
             If LCase(lblIdentity.Text) = "staff" Then
                 'staff database
@@ -46,8 +45,7 @@ Public Class Question
 
                     information = Staff_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer)
 
-
-                    Identity_Select.Decryption(information.Rows(0).Item(0), intEncryptKey, strPassword)
+                    Identity_Select.Decryption(information.Rows(0).Item(1), intEncryptKey, strPassword)
 
                     'open change password form
                     Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, strPassword)
@@ -67,7 +65,7 @@ Public Class Question
 
                     information = Member_Security_informationTableAdapter.GetDataByIDandAnswer(lblUserId.Text, strAnswer)
 
-                    Identity_Select.Decryption(information.Rows(0).Item(0), intEncryptKey, strPassword)
+                    Identity_Select.Decryption(information.Rows(0).Item(1), intEncryptKey, strPassword)
 
                     'open change password form
                     Dim Change_Password As New Change_Password(lblIdentity.Text, lblUserId.Text, strPassword)
@@ -105,11 +103,10 @@ Public Class Question
 
             If (intCount > 0) Then
 
-                lblQuestion.Text = Staff_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Rows(0).Item(2).ToString
+                lblQuestion.Text = Member_Security_informationTableAdapter.GetDataByID(lblUserId.Text).Rows(0).Item(2).ToString
 
             End If
         End If
-
 
     End Sub
 

@@ -12,6 +12,8 @@ Public Class Log_In
 
     'decide identity
     Private Sub Log_In_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Car_Renting_System_DatabaseDataSet.USER_VISIT' table. You can move, or remove it, as needed.
+        Me.USER_VISITTableAdapter.Fill(Me.Car_Renting_System_DatabaseDataSet.USER_VISIT)
         btnNewUser.Text = "NEW " & lblIdentity.Text
         lblUserId.Text = UCase(lblIdentity.Text) & " ID"
         'ToolTip1.SetToolTip(btnNewUser, "Register as new " & LCase(lblIdentity.Text))
@@ -42,8 +44,8 @@ Public Class Log_In
             lblAlertMsg.Visible = True
 
         ElseIf LCase(lblIdentity.Text) = "member" Then
+            registerMAMBER.Show()
             Me.Close()
-            MessageBox.Show("Member registration form")
         End If
 
     End Sub
@@ -113,6 +115,7 @@ Public Class Log_In
                         If (Staff_Security_informationTableAdapter.GetDataByIdPassPrivilege(strUserID, strPassword, 2).Count > 0) Then
                             'temp
                             MessageBox.Show("(STAFF) go staff register form with user authorization")
+                            USER_VISITTableAdapter.Insert(txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
 
                             registertesting.Show()
                             lblAlertMsg.Visible = False
@@ -138,6 +141,7 @@ Public Class Log_In
                     If (Staff_Security_informationTableAdapter.GetDataByIDandPASSWORD(strUserID, strPassword).Count > 0) Then
                         'temp
                         MessageBox.Show("(STAFF) go renting panel with user authorization")
+                        USER_VISITTableAdapter.Insert(txtId.Text, "STAFF", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
 
                         'log in
                         'renting control panel  open (that operate by staff)
@@ -157,6 +161,7 @@ Public Class Log_In
                     'temp
                     MessageBox.Show("(MEMBER) go renting panel with user authorization")
 
+                    USER_VISITTableAdapter.Insert(txtId.Text, "MEMBER", Date.Now.ToString("dd/MM/yyyy hh:mm"), "")
                     'log in
                     'control panel for renting open (that operate by customer)
                     'Me.Close()
